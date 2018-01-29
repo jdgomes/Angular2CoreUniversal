@@ -1,0 +1,83 @@
+<h1>Search Results</h1>
+<!--<toaster-container></toaster-container>-->
+
+<p *ngIf="!searchResults"><em>Loading...</em></p>
+
+<!--<ul class="users">-->
+<div class="row panel panel-default" *ngFor="let result of searchResults"
+     (click)="onSelect(result)">
+  <div *ngIf="result.type == 'Provider'">
+    <div class="col-xs-12">
+      <div class="col-xs-12">
+        <div class="panel-default panel-heading">
+          <div class="col-xs-12">
+            <h3 class="label label-primary">{{result.title}}</h3>
+          </div>
+          <div class="col-xs-12">
+            <div class="col-xs-3">
+              <div><label>Hours of Operation</label></div>
+              {{result.hours}}
+            </div>
+            <div class="col-xs-6">
+              <div><label>Services Provided</label></div>
+              {{result.services}}
+            </div>
+            <div class="col-xs-3">
+              <div><label>Eligibility Requirements</label></div>
+              {{result.eligibilityRequirements}}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 panel-default panel-body">
+          <div class="pull-left">
+            {{result.type}}
+          </div>
+          <div class="pull-right">
+            <a href="{{result.website}}"><i class="fa fa-external-link"></i></a>
+            <a [href]="'mailto:' + result.email"><i class="fa fa-envelope-o"></i></a>
+            <a [title]="result.phone"><i class="fa fa-phone"></i></a>
+            <a (click)="popToast(result.title)"><i class="fa fa-bookmark"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="result.type == 'Article'">
+    <div class="col-xs-12">
+      <div class="col-xs-2">
+        <i class="fa fa-newspaper-o fa-img"></i>
+      </div>
+      <div class="col-xs-10">
+        <div class="panel-default panel-heading">
+          <div class="col-xs-12">
+            <div class="col-xs-12">
+              <h3 class="label label-primary">{{result.title}}</h3>
+            </div>
+            <div class="col-xs-12">
+              {{result.description}}
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 panel-body">
+          <div class="pull-left">
+            Read Article
+          </div>
+          <div class="pull-right">
+            <a (click)="popToast(result.title)"><i class="fa fa-bookmark"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  
+  </div>
+
+  <!--<button class="delete"
+          (click)="deleteUser(user); $event.stopPropagation()">
+    x
+  </button>-->
+</div>
+<!--</ul>-->
+<!--<app-search-result-detail [result]="selectedResult"></app-search-result-detail>-->

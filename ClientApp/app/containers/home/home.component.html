@@ -1,65 +1,52 @@
-﻿<h1>{{ title }}</h1>
 
-<blockquote>
-  <strong>Enjoy the latest features from .NET Core & Angular 5.0!</strong>
-  <br> For more info check the repo here: <a href="https://github.com/MarkPieszak/aspnetcore-angular2-universal">AspNetCore-Angular2-Universal repo</a>
-  <br><br>
-</blockquote>
+<h1>{{'CHOOSE' | translate}}</h1>
+
+<a [routerLink]="['/stage-of-life-options']">
+  <div class="card col-xs-3">
+    <i class="fa fa-group"></i>
+    <div class="card-info">
+      <h4><b>{{'STAGE_OF_LIFE' | translate}}</b></h4>
+      <p>info</p>
+    </div>
+  </div>
+</a>
+
+<div class="col-xs-1"></div>
+<a [routerLink]="['/topic-of-interest-options']">
+  <div class="card col-xs-3">
+    <i class="fa fa-trophy"></i>
+    <div class="card-info">
+      <h4><b>{{'TOPIC_OF_INTEREST' | translate}}</b></h4>
+      <p>info</p>
+    </div>
+  </div>
+</a>
+
+<div class="col-xs-1"></div>
+
+<a [routerLink]="['/diagnosis-options']">
+  <div class="card col-xs-3">
+    <i class="fa fa-stethoscope"></i>
+    <div class="card-info">
+      <h4><b>{{'DIAGNOSIS' | translate}}</b></h4>
+      <p>info</p>
+    </div>
+  </div>
+</a>
 
 <div class="row">
-  <div class="col-lg-6">
-    <h2>{{ 'HOME_FEATURE_LIST_TITLE' | translate }} </h2>
-    <ul>
-      <li>ASP.NET Core 2.0 :: ( Visual Studio 2017 )</li>
-      <li>
-        Angular 5.* front-end UI framework
-        <ul>
-          <li>Angular **platform-server** (aka: Universal) - server-side rendering for SEO, deep-linking, and
-            incredible performance.</li>
-          <!--<li>HMR State Management - Don't lose your applications state during HMR!</li>-->
-          <li>AoT (Ahead-of-time) production compilation for even faster Prod builds.</li>
-        </ul>
-      </li>
-      <li>
-        The latest TypeScript 2.* features
-      </li>
-      <li>
-        Webpack
-        <ul>
-          <li>Hot Module Reloading/Replacement for an amazing development experience.</li>
-          <li>Tree-shaking</li>
-        </ul>
-      </li>
+  <div class="col-xs-12">
+    <div>
+      <h2> {{ 'SWITCH_LANGUAGE' | translate }}</h2>
 
-      <li>Bootstrap (ngx-bootstrap) : Bootstrap capable of being rendered even on the server.</li>
-      <li>Unit testing via karma & jasmine.</li>
-    </ul>
-
-  </div>
-
-  <div class="col-lg-6">
-    <h2>{{ 'HOME_ISSUES_TITLE' | translate }}</h2>
-
-    <ul>
-      <li><strong>Issues with this Starter?</strong> <br>Please post an issue here: <a href="https://github.com/MarkPieszak/aspnetcore-angular2-universal">AspNetCore-Angular2-Universal repo</a><br><br></li>
-      <!--<li><strong>Issues with <u>Universal</u> itself?</strong> <br>Please post an issue here: <a href="https://github.com/angular/universal">Angular Universal repo</a></li>-->
-    </ul>
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="col-lg-12">
-
-    <h2> {{ 'SWITCH_LANGUAGE' | translate }}</h2>
-
-    <button class="btn btn-default" (click)="setLanguage('en')">
+      <button class="btn btn-default" (click)="setLanguage('en')">
         <span class="flag-icon flag-icon-us"></span>  {{ 'ENGLISH' | translate }}
-    </button>
+      </button>
 
-    <button class="btn btn-default" (click)="setLanguage('no')">
+      <button class="btn btn-default" (click)="setLanguage('no')">
         <span class="flag-icon flag-icon-no"></span> {{ 'NORWEGIAN' | translate }}
-    </button>
+      </button>
 
+    </div>
   </div>
 </div>

@@ -1,23 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-nav-menu',
-    templateUrl: './navmenu.component.html',
-    styleUrls: ['./navmenu.component.css']
+  selector: 'app-nav-menu',
+  templateUrl: './navmenu.component.html',
+  styleUrls: ['./navmenu.component.css']
 })
 
 export class NavMenuComponent {
-    collapse: string = 'collapse';
 
-    collapseNavbar(): void {
-        if (this.collapse.length > 1) {
-            this.collapse = '';
-        } else {
-            this.collapse = 'collapse';
-        }
-    }
+  constructor(  public translate: TranslateService ) { }
 
-    collapseMenu() {
-        this.collapse = 'collapse';
-    }
+  public setLanguage(lang) {
+    this.translate.use(lang);
+  }
 }

@@ -5,5 +5,11 @@
   "COUNTER": "Teller",
   "SWITCH_LANGUAGE": "Bytt språk",
   "ENGLISH": "Engelsk",
-  "NORWEGIAN": "Norsk"
+  "NORWEGIAN": "Norsk",
+
+  "STAGE_OF_LIFE": "Livsstil",
+  "TOPIC_OF_INTEREST": "Emne av Interesse",
+  "DIAGNOSIS": "Diagnose",
+  "CHOOSE": "Velg en sti for å finne informasjon og tjenester ..."
+
 }

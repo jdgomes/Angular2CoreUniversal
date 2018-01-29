@@ -1,11 +1,11 @@
-﻿using AspCoreServer.Models;
+using AspCoreServer.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AspCoreServer.Data
 {
-    public class SpaDbContext : DbContext
+    public class AwsContext : DbContext
     {
-        public SpaDbContext(DbContextOptions<SpaDbContext> options)
+        public AwsContext(DbContextOptions<AwsContext> options)
             : base(options)
         {
             Database.EnsureCreated();
@@ -13,5 +13,6 @@ namespace AspCoreServer.Data
 
         //List of DB Models - Add your DB models here
         public DbSet<User> User { get; set; }
-    }
+        public DbSet<SearchResult> SearchResults { get; set; }
+  }
 }

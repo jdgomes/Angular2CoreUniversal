@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Webpack (JavaScriptServices) with a few changes & updates
  * - This is to keep us inline with JSServices, and help those using that template to add things from this one
  *
@@ -32,7 +32,8 @@ module.exports = (env) => {
             rules: [
                 { test: /\.ts$/, use: isDevBuild ? ['awesome-typescript-loader?silent=true', 'angular2-template-loader', 'angular2-router-loader'] : '@ngtools/webpack' },
                 { test: /\.html$/, use: 'html-loader?minimize=false' },
-                { test: /\.css$/, use: [ 'to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] },
+                { test: /\.css$/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize'] }, //{ test: /\.css$/, use: [ 'style-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize'], include: [/node_modules/] },
+                
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' },
                 ...sharedModuleRules
             ]

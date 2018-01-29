@@ -6,6 +6,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { TransferHttpCacheModule } from '@nguniversal/common';
+import { ToasterModule, ToasterService, ToastComponent, ToasterContainerComponent  } from 'angular5-toaster/angular5-toaster';
 
 import { Ng2BootstrapModule } from 'ngx-bootstrap';
 
@@ -15,15 +16,23 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { HomeComponent } from './containers/home/home.component';
+import { StageOfLifeOptionsComponent } from './containers/stage-of-life-options/stage-of-life-options.component';
+import { TopicOfInterestOptionsComponent } from './containers/topic-of-interest-options/topic-of-interest-options.component';
+import { DiagnosisOptionsComponent } from './containers/diagnosis-options/diagnosis-options.component';
+import { SearchResultsComponent } from './containers/search-results/search-results.component';
+
 import { UsersComponent } from './containers/users/users.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { SearchResultDetailComponent } from './components/search-result-detail/search-result-detail.component';
 import { CounterComponent } from './containers/counter/counter.component';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-bootstrap.component';
 
 import { LinkService } from './shared/link.service';
 import { UserService } from './shared/user.service';
+import { SearchService } from './shared/search.service';
 import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine';
 
 export function createTranslateLoader(http: HttpClient, baseHref) {
@@ -38,13 +47,21 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
 @NgModule({
     declarations: [
         AppComponent,
-        NavMenuComponent,
+      NavMenuComponent,
+      SearchBoxComponent,
         CounterComponent,
         UsersComponent,
-        UserDetailComponent,
-        HomeComponent,
+      UserDetailComponent,
+      SearchResultDetailComponent,
+      HomeComponent,
+      StageOfLifeOptionsComponent,
+      TopicOfInterestOptionsComponent,
+      DiagnosisOptionsComponent,
+      SearchResultsComponent,
         NotFoundComponent,
-        NgxBootstrapComponent
+      NgxBootstrapComponent,
+      ToastComponent,
+      ToasterContainerComponent
     ],
     imports: [
         CommonModule,
@@ -126,7 +143,24 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
                 }
             },
 
-            { path: 'lazy', loadChildren: './containers/lazy/lazy.module#LazyModule'},
+            { path: 'lazy', loadChildren: './containers/lazy/lazy.module#LazyModule' },
+
+            {
+              path: 'stage-of-life-options', component: StageOfLifeOptionsComponent,
+              data: {title: 'AWS - Stage Of Life',}
+            },
+            {
+              path: 'topic-of-interest-options', component: TopicOfInterestOptionsComponent,
+              data: { title: 'AWS - Topic Of Interest', }
+            },
+            {
+              path: 'diagnosis-options', component: DiagnosisOptionsComponent,
+              data: { title: 'AWS - Diagnosis', }
+            },
+            {
+              path: 'search-results', component: SearchResultsComponent,
+              data: { title: 'AWS - Search Results', }
+            },
 
             {
                 path: '**', component: NotFoundComponent,
@@ -139,6 +173,7 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
                     ]
                 }
             }
+            
         ], {
           // Router options
           useHash: false,
@@ -148,8 +183,10 @@ export function createTranslateLoader(http: HttpClient, baseHref) {
     ],
     providers: [
         LinkService,
-        UserService,
-        TranslateModule
+      UserService,
+      SearchService,
+      TranslateModule,
+      ToasterService
     ],
     bootstrap: [AppComponent]
 })

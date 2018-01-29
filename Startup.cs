@@ -11,6 +11,8 @@ using AspCoreServer.Data;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Net.Http.Headers;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Asp2017.Models;
 
 namespace AspCoreServer
 {
@@ -47,21 +49,25 @@ namespace AspCoreServer
       services.AddMvc();
       services.AddNodeServices();
 
-      var connectionStringBuilder = new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = "spa.db" };
+      var connectionStringBuilder = new Microsoft.Data.Sqlite.SqliteConnectionStringBuilder { DataSource = "aws2.db" };
       var connectionString = connectionStringBuilder.ToString();
 
-      services.AddDbContext<SpaDbContext>(options =>
+    
+      services.AddDbContext<AwsContext>(options =>
           options.UseSqlite(connectionString));
+
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<AwsContext>();
 
       // Register the Swagger generator, defining one or more Swagger documents
       services.AddSwaggerGen(c =>
       {
-        c.SwaggerDoc("v1", new Info { Title = "Angular 5.0 Universal & ASP.NET Core advanced starter-kit web API", Version = "v1" });
+        c.SwaggerDoc("v1", new Info { Title = "AWS", Version = "v1" });
       });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, SpaDbContext context)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, AwsContext context)
     {
       loggerFactory.AddConsole(Configuration.GetSection("Logging"));
       loggerFactory.AddDebug();

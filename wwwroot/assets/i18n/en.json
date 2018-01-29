@@ -5,5 +5,10 @@
   "COUNTER": "Counter",
   "SWITCH_LANGUAGE": "Switch language",
   "ENGLISH": "English",
-  "NORWEGIAN": "Norwegian"
+  "NORWEGIAN": "Norwegian",
+
+  "STAGE_OF_LIFE": "Stage of Life",
+  "TOPIC_OF_INTEREST": "Topic of Interest",
+  "DIAGNOSIS": "Diagnosis",
+  "CHOOSE": "Choose a path to find information and services..."
 }

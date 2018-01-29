@@ -11,9 +11,9 @@ namespace AspCoreServer.Controllers
   [Route("api/[controller]")]
   public class UsersController : Controller
   {
-    private readonly SpaDbContext _context;
+    private readonly AwsContext _context;
 
-    public UsersController(SpaDbContext context)
+    public UsersController(AwsContext context)
     {
       _context = context;
     }

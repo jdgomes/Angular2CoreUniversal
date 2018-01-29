@@ -4,14 +4,14 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
+    templateUrl: './topic-of-interest-options.component.html',
+    styleUrls: ['./topic-of-interest-options.component.css']
 })
-export class HomeComponent implements OnInit {
-  
-
+export class TopicOfInterestOptionsComponent implements OnInit {
     // Use "constructor"s only for dependency injection
-    constructor(public translate: TranslateService) { }
+    constructor(
+      public translate: TranslateService
+    ) { }
 
     // Here you want to handle anything with @Input()'s @Output()'s
     // Data retrieval / etc - this is when the Component is "ready" and wired up

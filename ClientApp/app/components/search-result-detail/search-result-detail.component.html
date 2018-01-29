@@ -1,0 +1,9 @@
+<div *ngIf="result">
+  <h2>{{result.title}} details:</h2>
+  <div><label>id: </label>{{result.id}}</div>
+  <div>
+    <label>Title: </label>
+    <input [(ngModel)]="result.title" placeholder="Title" #details="ngModel" />
+  </div>
+  <button [class.disabled]="details.pristine" class="btn btn-success" >Save</button>
+</div>
